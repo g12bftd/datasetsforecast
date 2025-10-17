@@ -588,6 +588,9 @@ class FavoritaData:
             filter_cols = filter_cols + zfill_cols + ffill_cols
             temporal_df = temporal.filter(items=filter_cols)
 
+            temporal_df['date']  = pd.to_datetime(temporal_df['date'], errors='coerce')  
+            balanced_df['date']  = pd.to_datetime(balanced_df['date'], errors='coerce') 
+
             #-------------------- with CodeTimer('Temporal Merge'): --------------------#
             # Two stage merge with balanced data
             item_store_df = item_store_df[['unique_id', 'item_nbr', 'store_nbr', 'is_original']]
