@@ -400,9 +400,14 @@ class FavoritaRawData:
             #print('len(date_range)', len(date_range))
 
             temporal_dates  = temporal['date'].unique() # 1684 days
-            start_date = '2017-01-01' # min(temporal_dates)
-            end_date = max(temporal_dates)
+            #start_date = '2017-01-01' # min(temporal_dates)
+            #end_date = max(temporal_dates)
             #end_date = '2017-08-31'  # Last date for test in Kaggle competition
+
+            temporal_dates  = temporal['date'].unique()
+            start_date = pd.Timestamp('2017-01-01') 
+            end_date   = pd.Timestamp('2017-08-31')   # Last date for test in Kaggle competition
+
 
             catalog_items   = set(items['item_nbr'].unique())
             catalog_stores  = set(store_info['store_nbr'].unique())
