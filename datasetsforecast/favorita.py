@@ -358,7 +358,7 @@ class FavoritaRawData:
 
         # Test is avoided because y_true is unavailable
         temporal = pd.read_feather(f'{directory}/train.feather')
-        temporal['date'] = pd.to_datetime(temporal['date'])
+        temporal['date'] = pd.to_datetime(temporal['date'].astype(np.int64), unit='ns')
         test = pd.read_csv(f'{directory}/test.csv', parse_dates=['date'])
         oil = pd.read_csv(f'{directory}/oil.csv', parse_dates=['date'])
         holidays = pd.read_csv(f'{directory}/holidays_events.csv', parse_dates=['date'])
